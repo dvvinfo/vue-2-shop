@@ -1,14 +1,16 @@
 <template>
   <div class="home">
-    <h1>hello</h1>
+    <main-wrapper-component />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-
+import MainWrapperComponent from "@/components/MainWrapperComponent.vue";
 export default {
   name: "HomeView",
-  components: {},
+  components: {
+    MainWrapperComponent,
+  },
 };
 </script>
