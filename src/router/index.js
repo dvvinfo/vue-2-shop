@@ -1,14 +1,21 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import CatalogComponent from "../components/CatalogComponent.vue";
+import CartComponent from "../components/CartComponent.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "home",
-    component: HomeView,
+    name: "catalog",
+    component: CatalogComponent,
+  },
+  {
+    path: "/cart",
+    name: "cart",
+    props: true,
+    component: CartComponent,
   },
   // {
   //   path: "/about",

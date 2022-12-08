@@ -1,5 +1,8 @@
 <template>
   <div class="catalog">
+    <router-link :to="{ name: 'cart', params: { cart: cart } }">
+      <div class="total-block">Cart: {{ cart.length }}</div>
+    </router-link>
     <h1>Catalog</h1>
     <div class="catalog__list">
       <catalog-item-component
@@ -24,7 +27,7 @@ export default {
     return {};
   },
   computed: {
-    ...mapGetters(["products"]),
+    ...mapGetters(["products", "cart"]),
   },
   methods: {
     ...mapActions(["getProductsFromApi", "addToCartActions"]),
@@ -49,5 +52,12 @@ export default {
     flex-wrap: wrap;
     justify-content: space-between;
   }
+}
+.total-block {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: $padding * 2;
+  border: 1px solid gray;
 }
 </style>
