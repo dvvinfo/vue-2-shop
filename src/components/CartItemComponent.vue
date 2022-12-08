@@ -8,9 +8,13 @@
     </div>
     <div class="catalog-item__quantity">
       <p>Qty:</p>
-      {{ cart_item_data.quantity }}
+      <span>
+        <span class="quantity__btn" @click="decrementItem">-</span>
+        {{ cart_item_data.quantity }}
+        <span class="quantity__btn" @click="incrementItem">+</span>
+      </span>
     </div>
-    <button @click="deleteFromCart">delete</button>
+    <button class="btn" @click="deleteFromCart">delete</button>
   </div>
 </template>
 
@@ -32,6 +36,12 @@ export default {
     },
   },
   methods: {
+    decrementItem() {
+      this.$emit("decrement");
+    },
+    incrementItem() {
+      this.$emit("increment");
+    },
     deleteFromCart() {
       this.$emit("deleteFromCart");
     },
@@ -49,6 +59,12 @@ export default {
   margin: $margin * 2;
   &__img {
     width: 100px;
+  }
+  .quantity__btn {
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid gray;
+    font-size: 20px;
   }
 }
 </style>
