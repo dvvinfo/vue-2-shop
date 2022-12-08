@@ -3,7 +3,7 @@
     <img class="catalog-item__img" :src="imgLink" :alt="product.name" />
     <p class="catalog-item__name">{{ product.name }}</p>
     <p class="catalog-item__price">Price: {{ product.price }} p</p>
-    <button class="catalog-item__btn btn" @click="sendDataToParent">
+    <button class="catalog-item__btn btn" @click="addToCart">
       Add to cart
     </button>
   </div>
@@ -27,8 +27,8 @@ export default {
     },
   },
   methods: {
-    sendDataToParent() {
-      this.$emit("sendArticle", this.product.article);
+    addToCart() {
+      this.$emit("addToCart", this.product);
     },
   },
 };

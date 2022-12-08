@@ -1,12 +1,12 @@
 <template>
   <div class="catalog">
-    <h1>CatalogComponent</h1>
+    <h1>Catalog</h1>
     <div class="catalog__list">
       <catalog-item-component
         v-for="product in products"
         :key="product.article"
         :product="product"
-        @sendArticle="showArticle"
+        @addToCart="addToCart"
       />
     </div>
   </div>
@@ -27,9 +27,9 @@ export default {
     ...mapGetters(["products"]),
   },
   methods: {
-    ...mapActions(["getProductsFromApi"]),
-    showArticle(data) {
-      console.log(data);
+    ...mapActions(["getProductsFromApi", "addToCartActions"]),
+    addToCart(data) {
+      this.addToCartActions(data);
     },
   },
   mounted() {

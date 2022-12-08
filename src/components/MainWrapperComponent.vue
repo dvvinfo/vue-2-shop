@@ -2,13 +2,14 @@
   <div class="main-wrapper">
     <h1>{{ title }}</h1>
     <CatalogComponent />
-    <cart-component />
+    <cart-component v-if="cart.length" :cart="cart" />
   </div>
 </template>
 
 <script>
 import CatalogComponent from "./CatalogComponent.vue";
 import CartComponent from "./CartComponent.vue";
+import { mapGetters } from "vuex";
 export default {
   name: "MainWrapperComponent",
   components: {
@@ -20,7 +21,9 @@ export default {
       title: "MainWrapper",
     };
   },
-  computed: {},
+  computed: {
+    ...mapGetters(["cart"]),
+  },
   methods: {},
   watch: {},
   mounted() {},
