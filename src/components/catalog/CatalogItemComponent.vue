@@ -23,7 +23,7 @@ export default {
   computed: {
     imgLink: function () {
       const fileName = this.product.image;
-      return require(`../assets/images/${fileName}`);
+      return require(`../../assets/images/${fileName}`);
     },
   },
   methods: {

@@ -32,7 +32,7 @@ export default {
   computed: {
     imgLink: function () {
       const fileName = this.cart_item_data.image;
-      return require(`../assets/images/${fileName}`);
+      return require(`../../assets/images/${fileName}`);
     },
   },
   methods: {
